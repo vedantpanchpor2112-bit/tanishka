@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>For Tanishka ❤️</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            background: #080808;
+            color: white;
+
+            font-family: Arial, sans-serif;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            overflow: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+
+            text-align: center;
+        }
+
+        /* HEART */
+
+        .heart {
+            font-size: 75px;
+
+            margin-bottom: 20px;
+
+            animation: beat 1.2s infinite;
+        }
+
+        @keyframes beat {
+
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.18);
+            }
+
+        }
+
+
+        /* NAME */
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .name {
+            color: #ff4f91;
+
+            text-shadow:
+                0 0 10px #ff4f91,
+                0 0 25px #ff4f91;
+        }
+
+
+        /* QUESTION */
+
+        .question {
+            font-size: 24px;
+            margin-bottom: 35px;
+        }
+
+
+        /* BUTTON AREA */
+
+        .buttons {
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            gap: 20px;
+
+            min-height: 70px;
+        }
+
+
+        /* BUTTON */
+
+        button {
+            border: none;
+
+            padding: 15px 30px;
+
+            border-radius: 30px;
+
+            font-size: 18px;
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+
+        /* YES */
+
+        #yesBtn {
+            background: #ff4f91;
+            color: white;
+
+            box-shadow:
+                0 0 15px rgba(255, 79, 145, 0.6);
+        }
+
+        #yesBtn:hover {
+            transform: scale(1.1);
+        }
+
+
+        /* NO */
+
+        #noBtn {
+            background: #333;
+            color: white;
+
+            position: relative;
+
+            transition:
+                left 0.15s ease,
+                top 0.15s ease;
+        }
+
+
+        /* SMALL TEXT */
+
+        .small-text {
+            margin-top: 35px;
+
+            color: #777;
+
+            font-size: 13px;
+        }
+
+
+        /* SUCCESS */
+
+        #successScreen {
+            display: none;
+        }
+
+
+        #successScreen h2 {
+
+            font-size: 45px;
+
+            color: #ff4f91;
+
+            margin-bottom: 25px;
+
+            text-shadow:
+                0 0 10px #ff4f91,
+                0 0 30px #ff4f91;
+
+            animation: yay 0.7s ease;
+        }
+
+
+        @keyframes yay {
+
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            70% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+        }
+
+
+        /* GIF */
+
+        .success-gif {
+
+            width: 300px;
+
+            max-width: 85vw;
+            max-height: 55vh;
+
+            display: block;
+
+            margin: auto;
+
+            border-radius: 15px;
+
+        }
+
+
+        /* FLOATING HEARTS */
+
+        .floating-heart {
+
+            position: fixed;
+
+            bottom: -50px;
+
+            font-size: 25px;
+
+            animation:
+                floatUp 4s linear forwards;
+
+            pointer-events: none;
+        }
+
+
+        @keyframes floatUp {
+
+            0% {
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+
+                opacity: 1;
+            }
+
+            100% {
+
+                transform:
+                    translateY(-110vh)
+                    rotate(360deg);
+
+                opacity: 0;
+            }
+
+        }
+
+
+        /* MOBILE */
+
+        @media(max-width:500px) {
+
+            h1 {
+                font-size: 27px;
+            }
+
+            .question {
+                font-size: 20px;
+            }
+
+            #successScreen h2 {
+                font-size: 35px;
+            }
+
+            .success-gif {
+                width: 270px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <!-- QUESTION -->
+
+    <div id="questionScreen">
+
+        <div class="heart">
+            ❤️
+        </div>
+
+
+        <h1>
+
+            Hey
+            <span class="name">
+                Tanishka
+            </span>
+            ...
+
+        </h1>
+
+
+        <div class="question">
+
+            Will you be my girlfriend? 🥹👉👈
+
+        </div>
+
+
+        <div class="buttons">
+
+
+            <!-- YES -->
+
+            <button
+                id="yesBtn"
+                onclick="sayYes()"
+            >
+
+                YES ❤️
+
+            </button>
+
+
+            <!-- NO -->
+
+            <button
+                id="noBtn"
+                onmouseenter="runAway()"
+                onclick="runAway()"
+            >
+
+                NO 😭
+
+            </button>
+
+
+        </div>
+
+
+        <div class="small-text">
+
+            Think carefully... 👀
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- SUCCESS -->
+
+    <div id="successScreen">
+
+        <h2>
+            YAYYYYY!!! 🥹❤️
+        </h2>
+
+
+        <img
+            src="icegif-960.gif"
+            class="success-gif"
+            alt="Cute celebration"
+        >
+
+    </div>
+
+
+</div>
+
+
+
+<script>
+
+
+/* ============================
+   YES BUTTON
+============================ */
+
+function sayYes() {
+
+    document.getElementById(
+        "questionScreen"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "successScreen"
+    ).style.display = "block";
+
+
+    createHearts();
+
+}
+
+
+
+/* ============================
+   NO BUTTON RUNS AWAY
+============================ */
+
+function runAway() {
+
+    const button =
+        document.getElementById("noBtn");
+
+
+    /*
+       Change position to fixed
+       so it can move anywhere
+    */
+
+    button.style.position = "fixed";
+
+
+    /*
+       Keep button inside screen
+    */
+
+    const maxX =
+        window.innerWidth -
+        button.offsetWidth -
+        20;
+
+
+    const maxY =
+        window.innerHeight -
+        button.offsetHeight -
+        20;
+
+
+    /*
+       Random position
+    */
+
+    const x =
+        Math.random() * maxX;
+
+
+    const y =
+        Math.random() * maxY;
+
+
+    button.style.left = x + "px";
+
+    button.style.top = y + "px";
+
+
+    /*
+       Change text
+    */
+
+    const messages = [
+
+        "NO 😭",
+
+        "Are you sure? 🥺",
+
+        "Really?? 😭",
+
+        "Think again 👀",
+
+        "NOPE 😂",
+
+        "Try YES ❤️",
+
+        "You can't catch me 😭"
+
+    ];
+
+
+    button.innerText =
+        messages[
+            Math.floor(
+                Math.random() *
+                messages.length
+            )
+        ];
+
+}
+
+
+
+/* ============================
+   HEARTS
+============================ */
+
+function createHearts() {
+
+
+    for (let i = 0; i < 50; i++) {
+
+
+        setTimeout(function() {
+
+
+            const heart =
+                document.createElement("div");
+
+
+            heart.className =
+                "floating-heart";
+
+
+            const emojis = [
+
+                "❤️",
+                "💕",
+                "💖",
+                "💗",
+                "💘",
+                "💓",
+                "💞"
+
+            ];
+
+
+            heart.innerText =
+                emojis[
+                    Math.floor(
+                        Math.random() *
+                        emojis.length
+                    )
+                ];
+
+
+            heart.style.left =
+                Math.random() * 100 + "vw";
+
+
+            heart.style.fontSize =
+                (18 + Math.random() * 25) + "px";
+
+
+            document.body.appendChild(
+                heart
+            );
+
+
+            setTimeout(function() {
+
+                heart.remove();
+
+            }, 5000);
+
+
+        }, i * 80);
+
+    }
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
